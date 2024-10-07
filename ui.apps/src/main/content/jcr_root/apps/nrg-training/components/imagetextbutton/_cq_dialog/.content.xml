@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Image with Text Button">
+    <content jcr:primaryType="nt:unstructured">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured">
+                <items jcr:primaryType="nt:unstructured">
+                    <asset jcr:primaryType="nt:unstructured">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns jcr:primaryType="nt:unstructured">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column jcr:primaryType="nt:unstructured">
+                                        <items
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:hideChildren="centerText">
+                                            <ctatext
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:orderBefore="centerText"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Please Enter CTA text"
+                                                fieldLabel="CTA Text"
+                                                name="./ctaText"/>
+                                            <socialLinkList
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Social Link List"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <links
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        fieldLabel="Social Link List">
+                                                        <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            jcr:title="Social Link List"
+                                                            sling:resourceType="granite/ui/components/foundation/container"
+                                                            fieldLabel="Social Link List"
+                                                            margin="{Boolean}true"
+                                                            name="./socialLinkList">
+                                                            <items
+                                                                jcr:primaryType="nt:unstructured"
+                                                                name="./socialLinkList">
+                                                                <icon
+                                                                    granite:class="cmp-image__editor-file-upload"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                                    allowUpload="{Boolean}false"
+                                                                    class="cq-droptarget"
+                                                                    description="The icon for the Social Media Entry"
+                                                                    fileNameParameter="./fileName"
+                                                                    fileReferenceParameter="./fileReference"
+                                                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                                    name="./file"/>
+                                                                <iconColor
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                    fieldDescription="The icon color for the Social Media Entry"
+                                                                    fieldLabel="Icon Color"
+                                                                    name="./iconColor">
+                                                                    <datasource
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="/apps/nrg-aem-common/components/datasources/designdatasource"
+                                                                        itemPath="${requestPathInfo.suffix}"
+                                                                        nodeName="backgroundColor"
+                                                                        propName="colorLabel"
+                                                                        propValue="colorClass"/>
+                                                                </iconColor>
+                                                                <link
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                    description="Link that the icon will link to"
+                                                                    fieldLabel="Link URL"
+                                                                    name="./href"
+                                                                    rootPath="/content"/>
+                                                                <target
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                    fieldDescription="The link target to use. Default will be same window"
+                                                                    fieldLabel="Link Target"
+                                                                    name="./target">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <self
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Same Window"
+                                                                            value="_self"/>
+                                                                        <blank
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="New Window"
+                                                                            value="_blank"/>
+                                                                    </items>
+                                                                </target>
+                                                                <accessibilityLabel
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldLabel="Accessibility Label"
+                                                                    name="./accessibilityLabel"/>
+                                                                <noreferrer
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                                    checked="{Boolean}false"
+                                                                    fieldDescription="Keeps external sites from knowing that you have included links to their material on your website."
+                                                                    name="./noreferrer"
+                                                                    text="Add rel=&quot;nofollow noreferrer &quot; to link"
+                                                                    uncheckedValue="{Boolean}false"
+                                                                    value="{Boolean}true"/>
+                                                            </items>
+                                                        </field>
+                                                    </links>
+                                                </items>
+                                            </socialLinkList>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </asset>
+                    <pagefields
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="CTA Paths"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <well
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <pages
+                                                        granite:class="foundation-layout-util-maximized-alt coral-Form-fieldwrapper"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <multi
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+                                                                <field
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                                    name="./pages"
+                                                                    rootPath="/content"/>
+                                                            </multi>
+                                                        </items>
+                                                    </pages>
+                                                </items>
+                                            </well>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </pagefields>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

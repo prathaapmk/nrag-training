@@ -1,0 +1,42 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 17
+Created-By: Maven Integration for Eclipse
+Bundle-Category: nrg training
+Bundle-Description: Core bundle for nrg training
+Bundle-ManifestVersion: 2
+Bundle-Name: nrg training - Core
+Bundle-SymbolicName: nrg-training.core
+Bundle-Version: 1.0.0.SNAPSHOT
+Export-Package: com.nrgtraining.core.filters;version="1.0";uses:="javax.
+ servlet",com.nrgtraining.core.listeners;version="1.0";uses:="org.apache
+ .sling.api.resource.observation",com.nrgtraining.core.models;version="1
+ .0";uses:="javax.annotation,org.apache.sling.api.resource,org.apache.sl
+ ing.models.annotations,org.apache.sling.models.annotations.injectorspec
+ ific",com.nrgtraining.core.schedulers;version="1.0",com.nrgtraining.cor
+ e.servlets;version="1.0";uses:="javax.servlet,org.apache.sling.api,org.
+ apache.sling.api.servlets"
+Import-Package: javax.annotation;version="0.0.0",com.day.cq.wcm.api;vers
+ ion="[1.30,2)",com.nrgtraining.core.filters;version="[1.0,2)",com.nrgtr
+ aining.core.listeners;version="[1.0,2)",com.nrgtraining.core.schedulers
+ ;version="[1.0,2)",com.nrgtraining.core.servlets;version="[1.0,2)",java
+ x.servlet;version="[3.1,4)",org.apache.sling.api;version="[2.3,3)",org.
+ apache.sling.api.request;version="[2.4,3)",org.apache.sling.api.resourc
+ e;version="[2.12,3)",org.apache.sling.api.resource.observation;version=
+ "[1.2,2)",org.apache.sling.api.servlets;version="[2.3,3)",org.apache.sl
+ ing.models.annotations;version="[1.5,2)",org.apache.sling.models.annota
+ tions.injectorspecific;version="[1.1,2)",org.slf4j;version="[1.7,2)"
+Provide-Capability: osgi.service;objectClass:List<String>="java.lang.Run
+ nable",osgi.service;objectClass:List<String>="javax.servlet.Filter";use
+ s:="javax.servlet",osgi.service;objectClass:List<String>="javax.servlet
+ .Servlet";uses:="javax.servlet",osgi.service;objectClass:List<String>="
+ org.apache.sling.api.resource.observation.ResourceChangeListener";uses:
+ ="org.apache.sling.api.resource.observation"
+Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.compone
+ nt)(version>=1.4.0)(!(version>=2.0.0)))",osgi.ee;filter:="(&(osgi.ee=Ja
+ vaSE)(version=1.8))"
+Service-Component: OSGI-INF/com.nrgtraining.core.filters.LoggingFilter.x
+ ml,OSGI-INF/com.nrgtraining.core.listeners.SimpleResourceListener.xml,O
+ SGI-INF/com.nrgtraining.core.schedulers.SimpleScheduledTask.xml,OSGI-IN
+ F/com.nrgtraining.core.servlets.SimpleServlet.xml
+Sling-Model-Classes: com.nrgtraining.core.models.HelloWorldModel
+

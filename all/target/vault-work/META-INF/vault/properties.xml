@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>nrg training - All</comment>
+<entry key="allowIndexDefinitions">false</entry>
+<entry key="created">2024-10-13T13:20:09.854Z</entry>
+<entry key="groupId">com.nrgtraining</entry>
+<entry key="name">nrg-training.all</entry>
+<entry key="description">All content package for nrg training</entry>
+<entry key="artifactId">nrg-training.all</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="packageType">container</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.nrgtraining</entry>
+</properties>

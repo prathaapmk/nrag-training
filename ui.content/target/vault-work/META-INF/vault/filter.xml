@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/nrg-training" mode="merge"/>
+    <filter root="/content/nrg-training" mode="merge"/>
+    <filter root="/content/dam/nrg-training" mode="merge">
+        <exclude pattern="/content/dam/nrg-training(/.*)?"/>
+        <include pattern="/content/dam/nrg-training/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/nrg-training/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/nrg-training" mode="merge"/>
+</workspaceFilter>

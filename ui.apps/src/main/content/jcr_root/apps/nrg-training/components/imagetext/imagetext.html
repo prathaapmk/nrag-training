@@ -36,17 +36,18 @@
   transform: translate(-50%, -50%);
 }
 </style>
-</head>
-<body>
+
 
 <h2>Image Text</h2>
 <p>How to place text over an image:</p>
+<sly data-sly-use.obj="com.nrgtraining.core.models.ImagewithTextModel"></sly>
 
+Helooo :::${obj.customValue}
 <div class="container">
-  <img src="${properties.fileReference}" alt="Snow" style="width:100%;">
-  <div class="bottom-left">${properties.leftBottomText}</div>
-  <div class="top-left">Top Left</div>
-  <div class="top-right">Top Right</div>
-  <div class="bottom-right">${properties.leftBottomText}</div>
+  <img src="${obj.fileReference}" alt="Snow" style="width:100%;">
+  <div class="bottom-left">${obj.leftBottomText}</div>
+  <div class="top-left">${obj.leftToptext}</div>
+  <div class="top-right">${obj.rightToptext}</div>
+  <div class="bottom-right">${obj.leftBottomText}</div>
   <div class="centered">Centered</div>
 </div>

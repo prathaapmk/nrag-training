@@ -43,6 +43,11 @@
 <sly data-sly-use.obj="com.nrgtraining.core.models.ImagewithTextModel"></sly>
 
 Helooo :::${obj.customValue}
+
+<h1> Getting data from Service</h1>
+
+<div style="background-color:red">${obj.apiData}</div>
+
 <div class="container">
   <img src="${obj.fileReference}" alt="Snow" style="width:100%;">
   <div class="bottom-left">${obj.leftBottomText}</div>
@@ -51,3 +56,17 @@ Helooo :::${obj.customValue}
   <div class="bottom-right">${obj.leftBottomText}</div>
   <div class="centered">Centered</div>
 </div>
+
+
+<ul data-sly-list="${obj.vanityPath}" style="background-color:blue">
+<li>${item}</li>
+</ul>
+
+<ul data-sly-list="${obj.slideshow}" style="background-color:green">
+<li>${item.caption}</li>
+<li>${item.description}</li>
+<li>${item.imagePath}</li>
+</ul>
+
+
+

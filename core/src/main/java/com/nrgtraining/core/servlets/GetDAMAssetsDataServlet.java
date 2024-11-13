@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
@@ -44,7 +45,7 @@ public class GetDAMAssetsDataServlet extends SlingSafeMethodsServlet {
 	@Reference
 	QueryBuilder queryBuilder;
 	
-	@Reference(target = "(component.name=com.nrgtraining.core.services.impl.ReadDataFromAPIImpl2)")
+	@Reference(target = "(component.name=com.nrgtraining.core.services.impl.ReadDataFromAPIImpl)")
 	ReadDataFromAPI readDataApi;
 	
 	 protected void doGet( SlingHttpServletRequest request,
@@ -63,10 +64,10 @@ public class GetDAMAssetsDataServlet extends SlingSafeMethodsServlet {
 			 	Map<String, String> queryMap = new  HashMap<String,String>();
 			 	
 			 	queryMap.put("path","/content/dam/nrg-training");
-			 queryMap.put("type","dam:Asset");
+			 	queryMap.put("type","dam:Asset");
 			 	queryMap.put("p.limit","-1");
-			 //	queryMap.put("1_property", "dc:description");
-			// 	queryMap.put("1_property.operation", "exists");
+			 	//queryMap.put("1_property", "dc:description");
+			 	//queryMap.put("1_property.operation", "exists");
 			 	ResourceResolver resourceResolver = request.getResourceResolver();
 			 	Session session = resourceResolver.adaptTo(Session.class);
 			 	Query query = queryBuilder.createQuery(PredicateGroup.create(queryMap), session);
@@ -112,8 +113,12 @@ public class GetDAMAssetsDataServlet extends SlingSafeMethodsServlet {
 					}
 			 	}
 			 	list.add(assetData);
-		      String serialized = (new ObjectMapper()).writeValueAsString(readDataApi.getAPIData());
-		     
+		      String serialized = (new ObjectMapper()).writeValueAsString(list);
+		    		  
+		    		  //readDataApi.getAPIData());
+		    //content  - data- urlJSon -- response 
+		    //  readDataApi.addNodetoAEM(readDataApi.getAPIData(),request.getResourceResolver());
+		      
 		      writer.write(serialized);
 		    } catch (Exception ioe) {
 		    	

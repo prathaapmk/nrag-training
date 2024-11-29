@@ -15,8 +15,11 @@
  */
 package com.nrgtraining.core.schedulers;
 
+import org.apache.sling.commons.scheduler.ScheduleOptions;
+import org.apache.sling.commons.scheduler.Scheduler;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
@@ -31,6 +34,8 @@ import org.slf4j.LoggerFactory;
 @Designate(ocd=SimpleScheduledTask.Config.class)
 @Component(service=Runnable.class)
 public class SimpleScheduledTask implements Runnable {
+	@Reference
+	Scheduler scheduler;
 
     @ObjectClassDefinition(name="A scheduled task",
                            description = "Simple demo for cron-job like task with properties")
@@ -60,6 +65,16 @@ public class SimpleScheduledTask implements Runnable {
     @Activate
     protected void activate(final Config config) {
         myParameter = config.myParameter();
+        //addScheduler();
     }
+
+	/*
+	 * private void addScheduler() {
+	 * 
+	 * ScheduleOptions sc = scheduler.schedule(logger, null);
+	 * 
+	 * 
+	 * }
+	 */
 
 }

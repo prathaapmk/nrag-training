@@ -1,0 +1,72 @@
+<style>
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+
+<h2>Image Text</h2>
+<p>How to place text over an image:</p>
+<sly data-sly-use.obj="com.nrgtraining.core.models.ImagewithTextModel"></sly>
+
+Helooo :::${obj.customValue}
+
+<h1> Getting data from Service</h1>
+
+<div style="background-color:red">${obj.apiData}</div>
+
+<div class="container">
+  <img src="${obj.fileReference}" alt="Snow" style="width:100%;">
+  <div class="bottom-left">${obj.leftBottomText}</div>
+  <div class="top-left">${obj.leftToptext}</div>
+  <div class="top-right">${obj.rightToptext}</div>
+  <div class="bottom-right">${obj.leftBottomText}</div>
+  <div class="centered">Centered</div>
+</div>
+
+
+<ul data-sly-list="${obj.vanityPath}" style="background-color:blue">
+<li>${item}</li>
+</ul>
+
+<ul data-sly-list="${obj.slideshow}" style="background-color:green">
+<li>${item.caption}</li>
+<li>${item.description}</li>
+<li>${item.imagePath}</li>
+</ul>
+
+
+
